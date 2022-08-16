@@ -2,8 +2,12 @@ import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import Typical from 'react-typical'
+import {motion} from 'framer-motion'
+import './Banner.css'
+
 
 const Banner = () => {
+  const transition = {duration: 2, type: 'spring'}
   const particlesInit = async (main) => {
     console.log(main);
 
@@ -14,6 +18,7 @@ const Banner = () => {
   };
   const particlesLoaded = (container) => {
     console.log(container);
+
   };
 
   return (
@@ -38,7 +43,7 @@ const Banner = () => {
             },
             modes: {
               push: {
-                quantity: 4,
+                quantity: 2,
               },
               repulse: {
                 distance: 200,
@@ -91,28 +96,37 @@ const Banner = () => {
           detectRetina: true,
         }}
       />
-      <div class="hero min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
-        <div class="hero-content flex-col lg:flex-row-reverse ">
-          <img src="https://placeimg.com/260/400/arch" class="max-w-sm rounded-lg shadow-2xl" />
-         
-          <div className="text-start text-white">
-            <h2 className='font-bold text-xl'>Hi I'm</h2>
-            <h1 class="text-5xl font-bold">Jasim Ahmed</h1>
-            <h2 className="font-bold text-2xl text-accent flex py-5"><span className="mr-2">I'm a </span>  <Typical
-              steps={['Web developer', 1000,
-                'React developer!', 3000,
-              ]}
-              loop={Infinity}
-              wrapper="p"
-            /></h2>
-            
-            <button class="btn btn-primary">download</button>
-          </div>
-        </div>
-        </div>
-        </div>     
-    
-  );
-};
+      <div class=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <div className="flex items-center justify-around py-12 lg:flex-row-reverse">
+          <motion.div
+          initial={{left:'-26%'}}
+          whileInView={{left: '-10%'}}
+          transition={transition}
+          className="face">
+            <div className="eyes">
+              <div className="eye"></div>
+              <div className="eye"></div>
+            </div>
+            </motion.div>
 
+            <div className="text-start text-white">
+              <h2 className='font-bold text-xl'>Hi I'm</h2>
+              <h1 class="text-5xl font-bold">Jasim Ahmed</h1>
+              <h2 className="font-bold text-2xl text-accent flex py-5"><span className="mr-2">I'm a </span>  <Typical
+                steps={['Web developer', 1000,
+                  'React developer!', 3000,
+                ]}
+                loop={Infinity}
+                wrapper="p"
+              /></h2>
+
+              <button class="btn btn-secondary">About</button>
+            </div>
+
+          </div>
+          </div>
+          </div>
+     
+       );
+};
 export default Banner;

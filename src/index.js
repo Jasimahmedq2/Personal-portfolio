@@ -6,6 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+{/* document.querySelector('body').addEventListener('mousemove', eyeball)
+function eyeball(){
+  var eye = document.querySelectorAll('.eye')
+  eye.forEach(function(eye){
+    let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2)
+    let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2)
+    let radian = Math.atan2(event.pageX - x, event.pageY - y)
+    let rot = (radian * (180 / PI) * -1) + 270;
+    eye.style.transform = 'rotate('++')'
+
+  }) 
+
+*/}
 root.render(
   <React.StrictMode>
     <BrowserRouter>
